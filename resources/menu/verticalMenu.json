@@ -1,0 +1,108 @@
+{
+  "menu": [
+    {
+      "name": "Vendors Register",
+      "url": "auth/register-multisteps",
+      "slug": "register-multisteps",
+      "icon": "menu-icon tf-icons ti ti-user",
+      "target": "_blank"
+    },
+    {
+      "url": "app/user/list",
+      "name": "Vendors List",
+      "slug": "app-user-list",
+      "icon": "menu-icon tf-icons ti ti-users",
+      "target": ""
+    },
+    {
+      "name": "Invoice",
+      "icon": "menu-icon tf-icons ti ti-file-dollar",
+      "slug": "app-invoice",
+      "submenu": [
+        {
+          "url": "app/invoice/item/add",
+          "name": "Add",
+          "slug": "app-invoice-with-item-add"
+        },
+        {
+          "url": "app/po/invoice/list",
+          "name": "PO Invoice",
+          "slug": "app-po-invoice-list"
+        },
+        {
+          "url": "app/invoice/list",
+          "name": "List",
+          "slug": "app-invoice-list"
+        }
+      ]
+    },
+    {
+      "name": "QC Manage",
+      "icon": "menu-icon tf-icons ti ti-settings",
+      "slug": "app-qc",
+      "submenu": [
+        {
+          "url": "app/qc/add",
+          "name": "Add",
+          "slug": "app-qc-add"
+        },
+        {
+          "url": "app/qc/list",
+          "name": "List",
+          "slug": "app-qc-list"
+        }
+      ]
+    },
+    {
+      "name": "Company",
+      "icon": "menu-icon tf-icons ti ti-square",
+      "slug": "app-company",
+      "submenu": [
+        {
+          "url": "app/company/add",
+          "name": "Add",
+          "slug": "app-company-add"
+        },
+        {
+          "url": "app/company/list",
+          "name": "List",
+          "slug": "app-company-list"
+        }
+      ]
+    },
+    {
+      "name": "PO Manage",
+      "icon": "menu-icon tf-icons ti ti-layout-kanban",
+      "slug": "app-po",
+      "submenu": [
+        {
+          "url": "app/po/add",
+          "name": "Add",
+          "slug": "app-po-add"
+        },
+        {
+          "url": "app/po/list",
+          "name": "List",
+          "slug": "app-po-list"
+        }
+      ]
+    },
+    {
+      "name": "GRN Manage",
+      "icon": "menu-icon tf-icons ti ti-settings",
+      "slug": "app-grn",
+      "submenu": [
+        {
+          "url": "app/grn/add",
+          "name": "Add",
+          "slug": "app-grn-add"
+        },
+        {
+          "url": "app/grn/list",
+          "name": "List",
+          "slug": "app-grn-list"
+        }
+      ]
+    }
+  ]
+}
