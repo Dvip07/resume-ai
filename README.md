@@ -1,66 +1,165 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# ✨ AI Resume Generator Portal (Powered by Ollama & Laravel)
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+```
+      _____  _                 _                               
+     |  __ \| |               | |                              
+     | |__) | |__   ___   ___ | | ___   __ _ _ __   ___  ___   
+     |  ___/| '_ \ / _ \ / _ \| |/ _ \ / _` | '_ \ / _ \/ __|  
+     | |    | | | | (_) | (_) | | (_) | (_| | | | |  __/\__ \  
+     |_|    |_| |_|\___/ \___/|_|\___/ \__, |_| |_|\___||___/  
+                                        __/ |                 
+                                       |___/                  
+```
 
-## About Laravel
+Welcome to the **AI-Powered Resume Builder** that does the hard work for you.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Upload your resume.  
+Get AI-suggested roles.  
+Click apply — get a tailored resume.  
+**Just 3 clicks**. That’s it.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+> "Let AI write your resume while you drink chai."
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+---
 
-## Learning Laravel
+## 🚀 Features (Completed)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+✅ **User Auth (Login & Register)**  
+✅ **Resume Upload (PDF)**  
+✅ **PDF → Text Extraction**  
+✅ **Ollama Integration** for analyzing the resume and suggesting top-fitting roles  
+✅ **Job Listings Per Role** using **Adzuna API**  
+✅ **Job Click Tracking** (when clicked → saved in DB)  
+✅ **"Apply" Triggers a Smart Crawler** that fetches full job descriptions using headless browser  
+✅ **Jobs + Resumes Stored in Database**
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+---
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## 🥪 Still Cooking (In Progress)
 
-## Laravel Sponsors
+🔄 **Background Crawler as a Scheduled Cron Job**  
+  → Automatically updates job descriptions every hour (chunked, smart crawl detection)  
+🧠 **LLM-based Resume Tailoring**  
+  → Sends job desc + old resume text to Ollama to generate a custom-fit resume  
+📄 **Resume JSON → PDF**  
+  → Smart insertion of new content and formatting using a PDF library  
+📅 **Downloadable Resume Output**  
+💼 **My Jobs Tracker**  
+  → Keeps history of applied jobs and related resumes
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+---
 
-### Premium Partners
+## 🛠️ Tech Stack
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+- **Backend:** Laravel  
+- **Frontend:** Blade + Tailwind (can be swapped)  
+- **LLM Engine:** Ollama (local LLM like LLaMA3)  
+- **Crawler:** Symfony Panther (headless Chrome control)  
+- **PDF Library:** TBD (DomPDF / SnappyPDF or custom)  
+- **Job API:** Adzuna (LinkedIn coming later)  
+- **Database:** MySQL  
+- **Scheduler:** Laravel Scheduler (for crawler)
 
-## Contributing
+---
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## 📦 Installation & Setup
 
-## Code of Conduct
+### 1. Clone the Repo
+```bash
+git clone https://github.com/dvip-ai/ai-resume-portal.git
+cd ai-resume-portal
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### 2. Install Dependencies
+```bash
+composer install
+npm install && npm run dev
+```
 
-## Security Vulnerabilities
+### 3. Set Up .env File
+Copy `.env.example` to `.env` and configure:
+```env
+DB_*
+OLLAMA_API_KEY=
+ADZUNA_APP_ID=
+ADZUNA_APP_KEY=
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### 4. Set up ChromeDriver (for Panther)
+Place ChromeDriver binary under:
+```bash
+base_path('drivers/chromedriver')
+```
+Or install via Homebrew:
+```bash
+brew install chromedriver
+```
 
-## License
+### 5. Run Migrations
+```bash
+php artisan migrate
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### 6. Start Your Local Server
+```bash
+php artisan serve
+```
+
+---
+
+## 🔄 Cron Job (Coming Soon)
+To auto-update job descriptions in the background:
+```bash
+* * * * * cd /path-to-your-project && php artisan schedule:run >> /dev/null 2>&1
+```
+
+---
+
+## 🧑‍💻 Contributing (Coming Once Open Source)
+
+- Raise an issue first if you're fixing a bug or adding a feature  
+- PRs welcome — especially new selectors or PDF beautification logic  
+- All contributors will be listed in the `CONTRIBUTORS.md` file  
+- Style guide and dev container coming soon
+
+---
+
+## 💡 Future Ideas
+
+- Add optional **role preference filter**
+- Support for **multi-language resumes**
+- ATS score simulator (coming from Ollama)
+- React/Vue frontend switch
+- Resume *version comparison* panel
+- Deployable via **Docker**, **Forge**, or **Vercel backend**
+
+---
+
+## ✨ Author
+
+**Built by [Dvip Patel](https://github.com/dvip-ai)**  
+> Master's student | SaaS dev ninja | Requirements whisperer | Part-time philosopher at 3AM
+
+---
+
+## 🌶️ Real Talk
+
+This ain’t your typical resume builder.
+
+This is **LLM-powered, auto-crawling, cron-scheduled**, PDF-slinging, three-click **AI job-seeking sorcery** built by one man who runs on chai, deadlines, and divine chaos.
+
+If you’re:
+- Tired of updating your resume manually 🤬  
+- Applying to jobs with the same generic doc 🥱  
+- Searching for roles like it's 2012 🕵️‍♂️  
+
+Then you just found your fix.
+
+**Open-source. Free. Blazing fast. Built with purpose.**
+
+> *Built for devs. Loved by AI. Feared by LinkedIn modals.*
+
+---
+
+🔥 *Star it. Fork it. Use it. Break it. Rebuild it. Make it your own.*  
+Let’s help the world apply smarter — not harder.
