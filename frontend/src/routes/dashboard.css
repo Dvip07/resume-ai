@@ -1,0 +1,78 @@
+/* Dashboard status widget (Requirement 11.2).
+
+   Same accessibility rules as the application screens: every text/background
+   pair keeps WCAG AA contrast, and the "needs attention" state is carried by
+   its wording and heading as well as its colour, never by colour alone. */
+
+.health {
+  margin: 0 0 1.5rem;
+  padding: 1rem 1.25rem;
+  border: 1px solid #d4d4d8;
+  border-radius: 8px;
+  background: #fafafa;
+}
+
+.health--attention {
+  border-color: #a16207;
+  background: #fefce8;
+}
+
+.health__heading {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+  color: #27272a;
+}
+
+.health--attention .health__heading {
+  color: #713f12;
+}
+
+.health__all-clear,
+.health__latest {
+  margin: 0;
+  color: #3f3f46;
+  font-size: 0.9375rem;
+}
+
+.health__counts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin: 0 0 0.75rem;
+}
+
+.health__count {
+  margin: 0;
+}
+
+.health__count dt {
+  font-size: 0.8125rem;
+  color: #3f3f46;
+}
+
+.health__count dd {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #27272a;
+}
+
+.health__count--operational dd {
+  color: #3f3f46;
+}
+
+.health__scope {
+  font-weight: 400;
+  color: #52525b;
+}
+
+.health__latest {
+  margin-top: 0.5rem;
+}
+
+.health__link {
+  display: inline-block;
+  margin-top: 0.75rem;
+  color: #1d4ed8;
+  font-weight: 600;
+}

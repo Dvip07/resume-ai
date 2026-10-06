@@ -1,0 +1,99 @@
+{
+  "__comment": "Trimmed but structurally faithful Adzuna /v1/api/jobs/{country}/search/1 response, recorded shape (ids/URLs/companies altered). Result 1 is a complete posting with a salary range; result 2 is the common partial case (no salary, no location object, teaser description); result 3 has the salary bounds reported the wrong way round and a single-bound-only sibling case is covered in result 4; result 5 is unusable (no title / no redirect_url).",
+  "count": 1287,
+  "mean": 92451.32,
+  "__CLASS__": "Adzuna::API::Response::JobSearchResults",
+  "results": [
+    {
+      "__CLASS__": "Adzuna::API::Response::Job",
+      "id": "4915032871",
+      "title": "Senior Laravel Developer",
+      "company": {
+        "__CLASS__": "Adzuna::API::Response::Company",
+        "display_name": "Northwind Digital"
+      },
+      "location": {
+        "__CLASS__": "Adzuna::API::Response::Location",
+        "display_name": "Toronto, Ontario",
+        "area": ["Canada", "Ontario", "Toronto"]
+      },
+      "description": "We are looking for a senior Laravel developer to own our API platform. You will work across queues, Eloquent, and a React frontend, and help us scale a job-automation pipeline. Strong PHP 8 and PostgreSQL experience required.",
+      "redirect_url": "https://www.adzuna.ca/land/ad/4915032871?se=fixture&utm_medium=api",
+      "created": "2026-02-11T09:14:22Z",
+      "salary_min": 105000.0,
+      "salary_max": 135000.5,
+      "salary_is_predicted": "0",
+      "contract_time": "full_time",
+      "category": {
+        "__CLASS__": "Adzuna::API::Response::Category",
+        "label": "IT Jobs",
+        "tag": "it-jobs"
+      }
+    },
+    {
+      "__CLASS__": "Adzuna::API::Response::Job",
+      "id": "4915044190",
+      "title": "Backend Engineer (PHP)",
+      "company": {
+        "__CLASS__": "Adzuna::API::Response::Company",
+        "display_name": "Halcyon Labs"
+      },
+      "description": "Backend engineer wanted. Apply on our site for the full description.",
+      "redirect_url": "https://www.adzuna.ca/land/ad/4915044190?se=fixture",
+      "created": "2026-02-10T17:02:00Z",
+      "salary_is_predicted": "0"
+    },
+    {
+      "__CLASS__": "Adzuna::API::Response::Job",
+      "id": "4915051007",
+      "title": "Full Stack Developer",
+      "company": {
+        "__CLASS__": "Adzuna::API::Response::Company",
+        "display_name": "Beacon Systems Inc"
+      },
+      "location": {
+        "__CLASS__": "Adzuna::API::Response::Location",
+        "display_name": "Oshawa, Ontario"
+      },
+      "description": "Full stack role, React and Laravel.",
+      "redirect_url": "https://www.adzuna.ca/land/ad/4915051007?se=fixture",
+      "created": "2026-02-09T11:45:13Z",
+      "salary_min": 120000.0,
+      "salary_max": 90000.0,
+      "salary_is_predicted": "1"
+    },
+    {
+      "__CLASS__": "Adzuna::API::Response::Job",
+      "id": "4915066512",
+      "title": "PHP Developer",
+      "company": {
+        "__CLASS__": "Adzuna::API::Response::Company",
+        "display_name": "Rivermill Software"
+      },
+      "location": {
+        "__CLASS__": "Adzuna::API::Response::Location",
+        "display_name": "Remote, Canada"
+      },
+      "description": "Maintain and extend a Laravel monolith.",
+      "redirect_url": "https://www.adzuna.ca/land/ad/4915066512?se=fixture",
+      "created": "not a date",
+      "salary_min": 0,
+      "salary_max": 88000.0,
+      "salary_is_predicted": "0"
+    },
+    {
+      "__CLASS__": "Adzuna::API::Response::Job",
+      "id": "4915077333",
+      "company": {
+        "__CLASS__": "Adzuna::API::Response::Company",
+        "display_name": "Unlisted Employer"
+      },
+      "location": {
+        "__CLASS__": "Adzuna::API::Response::Location",
+        "display_name": "Ottawa, Ontario"
+      },
+      "description": "A posting with no title and no application URL.",
+      "created": "2026-02-08T08:00:00Z"
+    }
+  ]
+}

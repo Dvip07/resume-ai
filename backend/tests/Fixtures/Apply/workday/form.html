@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!--
+  Hand-authored representation of a Workday "My Information" apply page.
+  NOT a capture of a live page. See tests/Fixtures/Apply/README.md.
+-->
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>My Information - Acme Careers</title>
+</head>
+<body>
+<div data-automation-id="applyFlowPage">
+    <div data-automation-id="legalNameSection">
+        <label for="name--legalName--firstName">First Name</label>
+        <input type="text" id="name--legalName--firstName" name="firstName"
+               data-automation-id="legalNameSection_firstName">
+        <label for="name--legalName--lastName">Last Name</label>
+        <input type="text" id="name--legalName--lastName" name="lastName"
+               data-automation-id="legalNameSection_lastName">
+    </div>
+
+    <div data-automation-id="contactInformationSection">
+        <label for="contact--email">Email Address</label>
+        <input type="email" id="contact--email" data-automation-id="email">
+        <label for="contact--phone">Phone Number</label>
+        <input type="tel" id="contact--phone" data-automation-id="phone-number">
+    </div>
+
+    <div data-automation-id="resumeSection">
+        <label>Resume/CV</label>
+        <input type="file" data-automation-id="file-upload-input-ref">
+    </div>
+
+    <!--
+      camelCase on purpose: Workday names its automation ids and fields this way
+      (see legalNameSection_firstName above), and substring attribute matching is
+      case sensitive. The lowercase-only selectors this config shipped with
+      matched none of these.
+    -->
+    <div data-automation-id="legalAuthorizedToWork">
+        <label>Are you legally authorized to work in the posting country?</label>
+        <select name="legalAuthorizedToWork">
+            <option value=""></option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select>
+    </div>
+    <div data-automation-id="requiresVisaSponsorship">
+        <label>Will you now or in the future require visa sponsorship?</label>
+        <select name="requiresVisaSponsorship">
+            <option value=""></option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select>
+    </div>
+    <div data-automation-id="candidateSourceQuestion">
+        <label>How did you hear about us?</label>
+        <select name="candidateSourceName">
+            <option value=""></option>
+            <option value="LinkedIn">LinkedIn</option>
+            <option value="Referral">Referral</option>
+        </select>
+    </div>
+
+    <div data-automation-id="bottom-navigation">
+        <button type="button" data-automation-id="bottom-navigation-next-button">Save and Continue</button>
+    </div>
+</div>
+</body>
+</html>

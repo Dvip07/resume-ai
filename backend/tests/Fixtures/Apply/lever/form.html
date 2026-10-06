@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<!--
+  Hand-authored representation of a Lever application form (jobs.lever.co/{org}/{id}/apply).
+  NOT a capture of a live page. See tests/Fixtures/Apply/README.md.
+-->
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Acme - Senior Engineer - Apply</title>
+</head>
+<body>
+<div class="content-wrapper">
+    <div class="posting-header">
+        <h2>Senior Engineer</h2>
+    </div>
+    <form class="application-form" method="POST" action="/acme/4242-1111-2222/apply" enctype="multipart/form-data">
+        <div class="application-field">
+            <label class="application-label">Resume/CV<span class="required">✱</span></label>
+            <input type="file" name="resume" accept=".pdf,.doc,.docx,.txt,.rtf">
+        </div>
+        <div class="application-field">
+            <label class="application-label">Full name<span class="required">✱</span></label>
+            <input type="text" name="name" required>
+        </div>
+        <div class="application-field">
+            <label class="application-label">Email<span class="required">✱</span></label>
+            <input type="email" name="email" required>
+        </div>
+        <div class="application-field">
+            <label class="application-label">Phone</label>
+            <input type="tel" name="phone">
+        </div>
+        <div class="application-field">
+            <label class="application-label">Current company</label>
+            <input type="text" name="org">
+        </div>
+        <div class="application-field">
+            <label class="application-label">Location</label>
+            <input type="text" name="location">
+        </div>
+
+        <div class="application-field">
+            <label class="application-label">LinkedIn URL</label>
+            <input type="text" name="urls[LinkedIn]">
+        </div>
+        <div class="application-field">
+            <label class="application-label">GitHub URL</label>
+            <input type="text" name="urls[GitHub]">
+        </div>
+        <div class="application-field">
+            <label class="application-label">Portfolio URL</label>
+            <input type="text" name="urls[Portfolio]">
+        </div>
+
+        <div class="application-question">
+            <label class="application-label">Are you legally authorized to work in the posting country?</label>
+            <select name="cards[authorized_to_work][field0]">
+                <option value=""></option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+        </div>
+        <div class="application-question">
+            <label class="application-label">Will you now or in the future require visa sponsorship?</label>
+            <select name="cards[visa_sponsorship][field0]">
+                <option value=""></option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+        </div>
+
+        <p class="recaptcha-disclaimer">This site is protected by reCAPTCHA.</p>
+
+        <div class="postings-btn-wrapper">
+            <button type="submit" class="template-btn-submit">Submit application</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>

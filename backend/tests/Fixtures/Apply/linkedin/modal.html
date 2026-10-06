@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<!--
+  Hand-authored representation of the LinkedIn Easy Apply modal. The real modal
+  is paginated; this fixture carries every input the adapter targets at once,
+  plus both the "Continue to next step" and "Submit application" buttons, so one
+  document can stand in for the whole walk.
+  NOT a capture of a live page. See tests/Fixtures/Apply/README.md.
+-->
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Apply to Acme | LinkedIn</title>
+</head>
+<body>
+<div class="jobs-easy-apply-modal artdeco-modal--layer-default" data-test-modal-id="easy-apply-modal"
+     role="dialog" aria-label="Apply to Acme">
+    <div class="artdeco-modal__content jobs-easy-apply-content">
+        <h3 class="t-16">Contact info</h3>
+
+        <div class="artdeco-text-input--container">
+            <label for="single-line-text-form-component-first-name">First name</label>
+            <input type="text" id="single-line-text-form-component-first-name" name="firstName">
+        </div>
+        <div class="artdeco-text-input--container">
+            <label for="single-line-text-form-component-last-name">Last name</label>
+            <input type="text" id="single-line-text-form-component-last-name" name="lastName">
+        </div>
+        <div class="fb-dash-form-element">
+            <label for="single-typeahead-entity-form-component-email">Email address</label>
+            <select id="single-typeahead-entity-form-component-email">
+                <option value="ada@example.test">ada@example.test</option>
+            </select>
+        </div>
+        <div class="fb-dash-form-element">
+            <label for="single-line-text-form-component-phoneNumber-nationalNumber">Mobile phone number</label>
+            <input type="tel" id="single-line-text-form-component-phoneNumber-nationalNumber">
+        </div>
+
+        <div class="jobs-document-upload jobs-document-upload--enabled">
+            <h3 class="t-16">Resume</h3>
+            <input type="file" id="jobs-document-upload-file-input-upload-footer-state"
+                   accept="application/pdf,application/msword">
+        </div>
+
+        <fieldset id="form-element-authorized-to-work" class="fb-dash-form-element">
+            <legend>Are you legally authorized to work in the posting country?</legend>
+            <select id="text-entity-list-form-component-authorized-to-work">
+                <option value="">Select an option</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+        </fieldset>
+        <fieldset id="form-element-visa-sponsorship" class="fb-dash-form-element">
+            <legend>Will you now or in the future require visa sponsorship?</legend>
+            <select id="text-entity-list-form-component-sponsorship">
+                <option value="">Select an option</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+        </fieldset>
+    </div>
+
+    <footer class="artdeco-modal__actionbar">
+        <button type="button" class="artdeco-button artdeco-button--primary"
+                data-easy-apply-next-button aria-label="Continue to next step">
+            Next
+        </button>
+        <button type="button" class="artdeco-button artdeco-button--primary"
+                aria-label="Submit application">
+            Submit application
+        </button>
+    </footer>
+</div>
+</body>
+</html>

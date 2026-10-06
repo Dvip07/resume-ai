@@ -1,0 +1,66 @@
+{
+  "__comment": "Trimmed but structurally faithful Greenhouse board response (GET /v1/boards/{slug}/jobs?content=true), ids/URLs/companies altered. Job 1 is a complete posting with an escaped-HTML content field and both dates; job 2 is remote (stated in the location, since Greenhouse has no remote flag) with a short teaser body; job 3 has no location.name and must fall back to the office names, and only updated_at; job 4 is an unrelated role that title matching must filter out; job 5 matches on title but is unusable (empty absolute_url, unparseable date).",
+  "jobs": [
+    {
+      "id": 4567890,
+      "internal_job_id": 771001,
+      "title": "Senior Laravel Developer, Platform",
+      "updated_at": "2026-02-12T18:04:11-05:00",
+      "first_published": "2026-02-01T12:30:00-05:00",
+      "requisition_id": "R-1201",
+      "absolute_url": "https://boards.greenhouse.io/acme/jobs/4567890",
+      "location": { "name": "Toronto, ON, Canada" },
+      "offices": [{ "id": 1, "name": "Toronto", "location": "Toronto, Canada" }],
+      "departments": [{ "id": 9, "name": "Engineering" }],
+      "metadata": [{ "id": 55, "name": "Employment Type", "value": "Full-time" }],
+      "content": "&lt;p&gt;Acme is hiring a &lt;strong&gt;senior Laravel developer&lt;/strong&gt; to own our billing platform.&lt;/p&gt;&lt;p&gt;What you&amp;#39;ll do:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Design queue-backed workflows in Laravel 12&lt;/li&gt;&lt;li&gt;Own PostgreSQL schema design and migrations&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;Requirements:&amp;nbsp;5+ years of PHP, strong testing habits, and experience with event-driven systems. We work in small teams with a lot of autonomy, ship several times a day, and expect engineers to talk directly to the people using what they build. This paragraph exists so the fixture clears the 400-character enrichment threshold.&lt;/p&gt;"
+    },
+    {
+      "id": 4567891,
+      "title": "Laravel Developer (Remote)",
+      "updated_at": "2026-02-10T09:00:00-05:00",
+      "first_published": "2026-02-09T09:00:00-05:00",
+      "absolute_url": "https://boards.greenhouse.io/acme/jobs/4567891",
+      "location": { "name": "Remote - Canada" },
+      "offices": [{ "id": 2, "name": "Remote" }],
+      "departments": [{ "id": 9, "name": "Engineering" }],
+      "content": "&lt;p&gt;Short teaser. Full description on the posting page.&lt;/p&gt;"
+    },
+    {
+      "id": 4567892,
+      "title": "Staff Laravel Developer",
+      "updated_at": "2026-01-28T11:15:00-05:00",
+      "absolute_url": "https://boards.greenhouse.io/acme/jobs/4567892",
+      "location": { "name": "" },
+      "offices": [
+        { "id": 1, "name": "Toronto" },
+        { "id": 3, "name": "New York" },
+        { "id": 1, "name": "Toronto" }
+      ],
+      "departments": [{ "id": 9, "name": "Engineering" }],
+      "content": ""
+    },
+    {
+      "id": 4567893,
+      "title": "Warehouse Associate",
+      "updated_at": "2026-02-11T08:00:00-05:00",
+      "first_published": "2026-02-11T08:00:00-05:00",
+      "absolute_url": "https://boards.greenhouse.io/acme/jobs/4567893",
+      "location": { "name": "Mississauga, ON, Canada" },
+      "offices": [{ "id": 4, "name": "Mississauga" }],
+      "departments": [{ "id": 12, "name": "Operations" }],
+      "content": "&lt;p&gt;Pick, pack and ship customer orders.&lt;/p&gt;"
+    },
+    {
+      "id": 4567894,
+      "title": "Junior Laravel Developer",
+      "updated_at": "not-a-date",
+      "absolute_url": "",
+      "location": { "name": "Toronto, ON, Canada" },
+      "offices": [],
+      "departments": [],
+      "content": "&lt;p&gt;Placeholder posting with no apply URL and an unparseable date.&lt;/p&gt;"
+    }
+  ],
+  "meta": { "total": 5 }
+}

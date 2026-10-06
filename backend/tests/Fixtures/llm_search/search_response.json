@@ -1,0 +1,106 @@
+{
+  "_comment": "A recorded-shape response from the web-search model, as ModelRouterService would hand it back in ModelCompletionResult::$parsedJson. Dates assume a frozen 'now' of 2026-02-12; tests set Carbon::setTestNow accordingly.",
+  "jobs": [
+    {
+      "title": "Senior Laravel Developer",
+      "company": "Northwind Digital",
+      "url": "https://careers.northwinddigital.com/jobs/senior-laravel-developer",
+      "location": "Toronto, ON",
+      "salary_min": 105000,
+      "salary_max": 135000.5,
+      "salary_currency": "cad",
+      "posted_at": "2026-02-10",
+      "description": "Model-authored prose that must never reach the scoring stage."
+    },
+    {
+      "title": "Backend Engineer (PHP)",
+      "company": "Vireo Labs",
+      "url": "https://vireolabs.io/careers/backend-engineer-php",
+      "location": "Remote",
+      "salary_min": null,
+      "salary_max": null,
+      "salary_currency": null,
+      "posted_at": null
+    },
+    {
+      "title": "Platform Engineer",
+      "company": "Halcyon Systems",
+      "url": "https://boards.greenhouse.io/halcyon/jobs/4412",
+      "location": "Vancouver, BC",
+      "salary_min": 96000,
+      "salary_max": 118000,
+      "salary_currency": "CAD",
+      "posted_at": "2026-06-01"
+    },
+    {
+      "title": "Full Stack Developer",
+      "company": "Merrow Interactive",
+      "url": "https://jobs.lever.co/merrow/8f21c3",
+      "location": "Ottawa, ON",
+      "salary_min": null,
+      "salary_max": null,
+      "salary_currency": null,
+      "posted_at": "2025-11-01"
+    },
+    {
+      "title": "Laravel Engineer",
+      "company": "Calder & Finch",
+      "url": "https://calderfinch.co.uk/careers/laravel-engineer",
+      "location": "Manchester, UK",
+      "salary_min": 82000,
+      "salary_max": 64000,
+      "salary_currency": "GBP",
+      "posted_at": null
+    },
+    {
+      "title": "API Developer",
+      "company": "Solum Health",
+      "url": "https://solumhealth.com/jobs/api-developer",
+      "location": "Boston, MA",
+      "salary_min": 130000,
+      "salary_max": 155000,
+      "salary_currency": null,
+      "posted_at": null
+    },
+    {
+      "title": "Contract PHP Developer",
+      "company": "Ashfield Consulting",
+      "url": "https://ashfield.example.org/roles/contract-php-developer",
+      "location": "Remote — Canada",
+      "salary_min": 62,
+      "salary_max": 80,
+      "salary_currency": "CAD",
+      "posted_at": null
+    },
+    {
+      "title": "Software Engineer",
+      "company": "Quillon Data",
+      "url": "careers dot quillon dot com slash swe",
+      "location": "Austin, TX",
+      "salary_min": null,
+      "salary_max": null,
+      "salary_currency": null,
+      "posted_at": null
+    },
+    {
+      "title": "Staff Engineer",
+      "company": "",
+      "url": "https://unnamed-employer.example.com/jobs/staff-engineer",
+      "location": "Remote",
+      "salary_min": null,
+      "salary_max": null,
+      "salary_currency": null,
+      "posted_at": null
+    },
+    {
+      "title": "Senior Laravel Developer — Remote",
+      "company": "Northwind Digital",
+      "url": "https://careers.northwinddigital.com/jobs/Senior-Laravel-Developer/",
+      "location": "Toronto, ON",
+      "salary_min": null,
+      "salary_max": null,
+      "salary_currency": null,
+      "posted_at": null
+    }
+  ]
+}

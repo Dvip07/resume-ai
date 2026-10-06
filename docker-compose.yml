@@ -1,0 +1,141 @@
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: ../docker/php/Dockerfile
+    container_name: resume-ai-backend
+    volumes:
+      - ./backend:/var/www/html
+    ports:
+      - "8001:8000"
+    environment:
+      DB_CONNECTION: mysql
+      DB_HOST: mysql
+      DB_PORT: 3306
+      DB_DATABASE: admin_resume
+      DB_USERNAME: root
+      DB_PASSWORD: ""
+      # Reaches the Playwright sidecar over the compose network only; the
+      # worker's port is deliberately not published to the host.
+      AUTOMATION_WORKER_ENABLED: "true"
+      AUTOMATION_WORKER_BASE_URL: http://automation-worker:8081
+      AUTOMATION_WORKER_TOKEN: ${AUTOMATION_WORKER_TOKEN:-}
+    depends_on:
+      mysql:
+        condition: service_healthy
+    networks:
+      - resume-ai
+
+  # Persistent queue workers (Requirement 11.4). Same image as `backend`, but
+  # Supervisor instead of `artisan serve`: it keeps `queue:work` alive across
+  # crashes, --max-time recycles and deploys. The whole pipeline — discovery,
+  # enrichment, scoring, tailoring, apply — only moves while this is running.
+  # Config, including the reasoning behind each flag, is in
+  # docker/supervisor/supervisord.conf.
+  queue-worker:
+    build:
+      context: ./backend
+      dockerfile: ../docker/php/Dockerfile
+    container_name: resume-ai-queue-worker
+    command: ["supervisord", "-c", "/etc/supervisor/worker.conf"]
+    volumes:
+      - ./backend:/var/www/html
+      - ./docker/supervisor/supervisord.conf:/etc/supervisor/worker.conf:ro
+    environment:
+      DB_CONNECTION: mysql
+      DB_HOST: mysql
+      DB_PORT: 3306
+      DB_DATABASE: admin_resume
+      DB_USERNAME: root
+      DB_PASSWORD: ""
+      QUEUE_CONNECTION: database
+      AUTOMATION_WORKER_ENABLED: "true"
+      AUTOMATION_WORKER_BASE_URL: http://automation-worker:8081
+      AUTOMATION_WORKER_TOKEN: ${AUTOMATION_WORKER_TOKEN:-}
+    depends_on:
+      mysql:
+        condition: service_healthy
+    # Supervisor restarts the workers; this restarts Supervisor.
+    restart: unless-stopped
+    networks:
+      - resume-ai
+
+  # The scheduler (Requirements 3.1, 11.1). `schedule:work` is the container
+  # equivalent of the single `* * * * * php artisan schedule:run` cron entry: it
+  # ticks every minute and fires whatever is due — today that means the
+  # `jobs:discover` fan-out, whose cadence is PIPELINE_DISCOVERY_CRON. It only
+  # *dispatches*; the work itself is executed by queue-worker, so both must be
+  # running for the pipeline to move on its own. Exactly one replica: the
+  # schedule entry is onOneServer, but that guard depends on a shared cache
+  # which this stack does not have.
+  scheduler:
+    build:
+      context: ./backend
+      dockerfile: ../docker/php/Dockerfile
+    container_name: resume-ai-scheduler
+    command: ["php", "artisan", "schedule:work"]
+    volumes:
+      - ./backend:/var/www/html
+    environment:
+      DB_CONNECTION: mysql
+      DB_HOST: mysql
+      DB_PORT: 3306
+      DB_DATABASE: admin_resume
+      DB_USERNAME: root
+      DB_PASSWORD: ""
+      QUEUE_CONNECTION: database
+      PIPELINE_DISCOVERY_ENABLED: "${PIPELINE_DISCOVERY_ENABLED:-true}"
+      PIPELINE_DISCOVERY_CRON: "${PIPELINE_DISCOVERY_CRON:-0 * * * *}"
+      PIPELINE_DISCOVERY_TIMEZONE: "${PIPELINE_DISCOVERY_TIMEZONE:-UTC}"
+    depends_on:
+      mysql:
+        condition: service_healthy
+    restart: unless-stopped
+    networks:
+      - resume-ai
+
+  # Node/Playwright browser automation (Requirement 3.4b). Renders JS-heavy job
+  # postings for enrichment when a plain fetch finds nothing, and will later
+  # drive the ApplyAdapter form automation. Internal service: no `ports:` entry,
+  # so it is reachable from `backend` and nowhere else.
+  automation-worker:
+    build:
+      context: ./automation-worker
+    container_name: resume-ai-automation-worker
+    environment:
+      AUTOMATION_WORKER_HOST: 0.0.0.0
+      AUTOMATION_WORKER_PORT: "8081"
+      # Required: the worker refuses to start on a non-loopback bind without a
+      # token. Set it in a root `.env` alongside this file.
+      AUTOMATION_WORKER_TOKEN: ${AUTOMATION_WORKER_TOKEN:?set AUTOMATION_WORKER_TOKEN, e.g. openssl rand -hex 32}
+      AUTOMATION_WORKER_MAX_CONCURRENCY: "2"
+    # A browser in a container needs more than the default 64MB /dev/shm.
+    shm_size: 512mb
+    restart: unless-stopped
+    networks:
+      - resume-ai
+
+  mysql:
+    image: mysql:8.0
+    container_name: resume-ai-mysql
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      MYSQL_DATABASE: admin_resume
+    ports:
+      - "3308:3306"
+    volumes:
+      - resume-ai-mysql-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+    networks:
+      - resume-ai
+
+volumes:
+  resume-ai-mysql-data:
+
+networks:
+  resume-ai:
+    name: resume-ai-network

@@ -1,14 +1,20 @@
-/.phpunit.cache
-/node_modules
-/public/build
-/public/hot
-/public/storage
-/storage/*.key
-/vendor
-.env
+# backend/ — Laravel API (no Node tooling; the SPA lives in frontend/)
+/backend/.phpunit.cache
+/backend/public/storage
+/backend/storage/*.key
+/backend/vendor
+backend/.env
+backend/.phpunit.result.cache
 .env.backup
 .env.production
-.phpunit.result.cache
+
+# frontend/ — standalone Vite app with its own dependency tree
+/frontend/node_modules
+/frontend/dist
+# frontend/.env holds committed, non-secret defaults; local/per-environment
+# overrides stay out of git.
+/frontend/.env.local
+/frontend/.env.*.local
 Homestead.json
 Homestead.yaml
 auth.json

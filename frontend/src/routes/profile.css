@@ -1,0 +1,159 @@
+/* Profile editor. Shares the button/field/state primitives declared in
+   resumes.css and auth.css; everything here is layout for the editable
+   sections. Colour never carries meaning on its own — errors and save status
+   are always spelled out in text. */
+
+.profile__intro {
+  margin: 0 0 1.5rem;
+  max-width: 42rem;
+  color: #52525b;
+}
+
+.profile__notice {
+  margin: 0 0 1.5rem;
+  padding: 0.75rem;
+  border: 1px solid #d4d4d8;
+  border-left-width: 3px;
+  border-radius: 0.375rem;
+  background: #fafafa;
+  color: #3f3f46;
+  font-size: 0.875rem;
+}
+
+.profile__saved {
+  margin: 0 0 1rem;
+  padding: 0.75rem;
+  border: 1px solid #15803d;
+  border-radius: 0.375rem;
+  background: #f0fdf4;
+  color: #14532d;
+  font-size: 0.875rem;
+}
+
+.profile__saved-glyph {
+  margin-right: 0.375rem;
+  font-weight: 700;
+}
+
+/* --------------------------------------------------------------- sections */
+
+.profile-section {
+  margin: 0 0 1.75rem;
+  padding: 1.25rem;
+  border: 1px solid #d4d4d8;
+  border-radius: 0.75rem;
+  background: #ffffff;
+}
+
+.profile-section__title {
+  margin: 0 0 0.25rem;
+  font-size: 1.125rem;
+}
+
+.profile-section__hint {
+  margin: 0 0 1rem;
+  color: #52525b;
+  font-size: 0.875rem;
+}
+
+/* Group-level (non field-specific) server message, e.g. an unknown key. */
+.profile-section__error {
+  margin: 0 0 1rem;
+  padding: 0.5rem 0.625rem;
+  border: 1px solid #b91c1c;
+  border-left-width: 3px;
+  border-radius: 0.375rem;
+  background: #fef2f2;
+  color: #7f1d1d;
+  font-size: 0.8125rem;
+}
+
+.profile-grid {
+  display: grid;
+  gap: 0 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+}
+
+/* ------------------------------------------------------------- list editor */
+
+.list-editor {
+  margin: 0 0 1rem;
+  padding: 0;
+  border: 0;
+}
+
+.list-editor__legend {
+  padding: 0;
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.list-editor__empty {
+  margin: 0 0 0.5rem;
+  color: #52525b;
+  font-size: 0.8125rem;
+}
+
+.list-editor__rows {
+  margin: 0 0 0.5rem;
+  padding: 0;
+  list-style: none;
+}
+
+.list-editor__row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.list-editor__row .field {
+  flex: 1;
+  margin-bottom: 0;
+}
+
+/* Keep the remove button aligned with the input, not the label above it. */
+.list-editor__remove {
+  margin-top: 1.35rem;
+}
+
+/* ------------------------------------------------------------ entry cards */
+
+.entry-editor {
+  position: relative;
+  margin: 0 0 1rem;
+  padding: 1rem;
+  padding-top: 0.5rem;
+  border: 1px solid #d4d4d8;
+  border-radius: 0.5rem;
+  background: #fafafa;
+}
+
+.entry-editor__title {
+  padding: 0;
+  margin: 0 6rem 0.75rem 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+/* Positioned instead of wrapped in a header row, because `legend` has to stay
+   the first child of `fieldset` for the group to be named correctly. */
+.entry-editor__remove {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+}
+
+.profile-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  padding-top: 0.5rem;
+}
+
+.profile-actions__hint {
+  color: #52525b;
+  font-size: 0.8125rem;
+}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<!--
+  Hand-authored representation of a Greenhouse job-board application form.
+  NOT a capture of a live page. See tests/Fixtures/Apply/README.md.
+-->
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Senior Engineer - Acme</title>
+</head>
+<body>
+<div id="main">
+    <h1 class="app-title">Senior Engineer</h1>
+    <form id="application_form" action="/acme/jobs/4242/applications" method="post" enctype="multipart/form-data">
+        <div class="field">
+            <label for="first_name">First Name <span class="required">*</span></label>
+            <input type="text" id="first_name" name="job_application[first_name]" autocomplete="given-name" required>
+        </div>
+        <div class="field">
+            <label for="last_name">Last Name <span class="required">*</span></label>
+            <input type="text" id="last_name" name="job_application[last_name]" autocomplete="family-name" required>
+        </div>
+        <div class="field">
+            <label for="email">Email <span class="required">*</span></label>
+            <input type="email" id="email" name="job_application[email]" autocomplete="email" required>
+        </div>
+        <div class="field">
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="job_application[phone]" autocomplete="tel">
+        </div>
+
+        <div class="field" id="resume_fieldset">
+            <label>Resume/CV <span class="required">*</span></label>
+            <input type="file" name="job_application[resume]" accept=".pdf,.doc,.docx,.txt,.rtf">
+        </div>
+        <div class="field" id="cover_letter_fieldset">
+            <label>Cover Letter</label>
+            <input type="file" name="job_application[cover_letter]" accept=".pdf,.doc,.docx,.txt,.rtf">
+        </div>
+
+        <div class="field">
+            <label for="job_application_urls_LinkedIn_Profile">LinkedIn Profile</label>
+            <input type="text" id="job_application_urls_LinkedIn_Profile" name="job_application[urls][LinkedIn Profile]">
+        </div>
+        <div class="field">
+            <label for="job_application_urls_Website">Website</label>
+            <input type="text" id="job_application_urls_Website" name="job_application[urls][Website]">
+        </div>
+
+        <div class="field custom-question">
+            <label for="job_application_answers_authorized">Are you legally authorized to work in the posting country?</label>
+            <select id="job_application_answers_authorized" name="job_application[answers][authorized_to_work]">
+                <option value=""></option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+        </div>
+        <div class="field custom-question">
+            <label for="job_application_answers_sponsorship">Will you now or in the future require visa sponsorship?</label>
+            <select id="job_application_answers_sponsorship" name="job_application[answers][visa_sponsorship]">
+                <option value=""></option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+        </div>
+        <div class="field custom-question">
+            <label for="candidate-location">Where are you currently located?</label>
+            <input type="text" id="candidate-location" name="job_application[answers][current_location]">
+        </div>
+        <div class="field custom-question">
+            <label for="job_application_answers_hear">How did you hear about this job?</label>
+            <select id="job_application_answers_hear" name="job_application[answers][how_did_you_hear]">
+                <option value=""></option>
+                <option value="LinkedIn">LinkedIn</option>
+                <option value="Referral">Referral</option>
+            </select>
+        </div>
+
+        <div class="recaptcha-notice">
+            This site is protected by reCAPTCHA and the Google Privacy Policy apply.
+        </div>
+
+        <button type="submit" id="submit_app">Submit Application</button>
+    </form>
+</div>
+</body>
+</html>

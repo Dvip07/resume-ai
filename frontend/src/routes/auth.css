@@ -1,0 +1,148 @@
+/* Styles for the /login and /register screens. Colour choices keep text at or
+   above WCAG AA contrast on both the card and the error state. */
+
+.auth {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem 1rem;
+}
+
+.auth__card {
+  width: 100%;
+  max-width: 24rem;
+  padding: 2rem;
+  border: 1px solid #d4d4d8;
+  border-radius: 0.75rem;
+  background: #ffffff;
+  color: #18181b;
+  text-align: left;
+}
+
+.auth__card h1 {
+  margin: 0 0 0.5rem;
+  font-size: 1.5rem;
+  line-height: 1.2;
+}
+
+.auth__intro {
+  margin: 0 0 1.25rem;
+  color: #52525b;
+  font-size: 0.875rem;
+}
+
+.field {
+  margin-bottom: 1rem;
+}
+
+.field label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.field__required {
+  color: #b91c1c;
+}
+
+.field__input {
+  width: 100%;
+  padding: 0.5rem 0.625rem;
+  border: 1px solid #71717a;
+  border-radius: 0.375rem;
+  background: #ffffff;
+  color: #18181b;
+  font: inherit;
+  box-sizing: border-box;
+}
+
+.field__input:focus-visible {
+  outline: 2px solid #1d4ed8;
+  outline-offset: 1px;
+}
+
+.field__input--error {
+  border-color: #b91c1c;
+}
+
+.field__hint {
+  margin: 0.25rem 0 0;
+  color: #52525b;
+  font-size: 0.8125rem;
+}
+
+.field__error {
+  margin: 0.25rem 0 0;
+  color: #b91c1c;
+  font-size: 0.8125rem;
+}
+
+/* Empty live region collapses to nothing but stays in the a11y tree. */
+.form-alert:empty {
+  display: none;
+}
+
+.form-alert {
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  border: 1px solid #fca5a5;
+  border-radius: 0.375rem;
+  background: #fef2f2;
+  color: #7f1d1d;
+  font-size: 0.875rem;
+}
+
+.form-alert__message {
+  margin: 0;
+}
+
+.form-alert__list {
+  margin: 0.5rem 0 0;
+  padding-left: 1.25rem;
+}
+
+.auth__submit {
+  width: 100%;
+  margin-top: 0.5rem;
+  padding: 0.625rem 1rem;
+  border: 1px solid transparent;
+  border-radius: 0.375rem;
+  background: #1d4ed8;
+  color: #ffffff;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.auth__submit:hover:not(:disabled) {
+  background: #1e40af;
+}
+
+.auth__submit:focus-visible {
+  outline: 2px solid #18181b;
+  outline-offset: 2px;
+}
+
+.auth__submit:disabled {
+  background: #71717a;
+  cursor: progress;
+}
+
+.auth__switch {
+  margin: 1.25rem 0 0;
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+/* Vite's default link colour (#646cff) sits under 4.5:1 on the white card. */
+.auth__card a {
+  color: #1d4ed8;
+  text-decoration: underline;
+}
+
+.auth__card a:hover,
+.auth__card a:focus-visible {
+  color: #1e3a8a;
+}

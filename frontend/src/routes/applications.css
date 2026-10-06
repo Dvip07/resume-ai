@@ -1,0 +1,218 @@
+/* Applications dashboard: list rows, needs-review call-to-action, document
+   links, and the automation log. Shares the buttons/badges/state primitives in
+   resumes.css, which both application screens import alongside this file.
+
+   Same accessibility rules as the resume screens: every text/background pair
+   keeps WCAG AA contrast, stage is always carried by a text label rather than
+   colour alone, and the review call-to-action is a live region rather than a
+   colour change. */
+
+/* ----------------------------------------------------- stage badge colours */
+
+.status-badge--stage-discovered,
+.status-badge--stage-unknown {
+  border-color: #3f3f46;
+  background: #f4f4f5;
+  color: #27272a;
+}
+
+.status-badge--stage-enriching,
+.status-badge--stage-tailoring,
+.status-badge--stage-applying {
+  border-color: #a16207;
+  background: #fefce8;
+  color: #713f12;
+}
+
+.status-badge--stage-scored,
+.status-badge--stage-tailored {
+  border-color: #1d4ed8;
+  background: #eff6ff;
+  color: #1e3a8a;
+}
+
+.status-badge--stage-applied {
+  border-color: #15803d;
+  background: #f0fdf4;
+  color: #14532d;
+}
+
+.status-badge--stage-failed {
+  border-color: #b91c1c;
+  background: #fef2f2;
+  color: #7f1d1d;
+}
+
+/* Deliberately the loudest of the set: the pipeline is stopped until a human
+   acts on it (Requirement 10.3). */
+.status-badge--stage-needs_review {
+  border-color: #9a3412;
+  background: #fff7ed;
+  color: #7c2d12;
+}
+
+.status-badge--stage-store_only {
+  border-color: #52525b;
+  background: #fafafa;
+  color: #3f3f46;
+}
+
+/* ------------------------------------------------------------------ rating */
+
+.stars {
+  color: #713f12;
+  font-size: 0.9375rem;
+  letter-spacing: 0.0625rem;
+  white-space: nowrap;
+}
+
+/* ------------------------------------------------- needs-review surfacing */
+
+.review-banner {
+  margin: 0 0 1.5rem;
+  padding: 1rem 1.125rem;
+  border: 1px solid #9a3412;
+  border-left-width: 4px;
+  border-radius: 0.5rem;
+  background: #fff7ed;
+  color: #7c2d12;
+}
+
+.review-banner__title {
+  margin: 0 0 0.5rem;
+  font-size: 1.0625rem;
+}
+
+.review-banner__list {
+  margin: 0;
+  padding-left: 1.125rem;
+  font-size: 0.875rem;
+}
+
+.review-banner__list li + li {
+  margin-top: 0.375rem;
+}
+
+.review-banner a,
+.review-callout a {
+  color: #7c2d12;
+}
+
+/* A review row stays identifiable in the list itself, not just in the banner. */
+.resume-list__item--review {
+  border-left: 4px solid #9a3412;
+  padding-left: 0.625rem;
+  background: #fffbf5;
+}
+
+.review-callout {
+  margin: 0 0 1.75rem;
+  padding: 1rem 1.125rem;
+  border: 1px solid #9a3412;
+  border-left-width: 4px;
+  border-radius: 0.5rem;
+  background: #fff7ed;
+  color: #7c2d12;
+}
+
+.review-callout__title {
+  margin: 0 0 0.5rem;
+  font-size: 1.0625rem;
+}
+
+.review-callout__detail {
+  margin: 0 0 0.5rem;
+  max-width: 42rem;
+  font-size: 0.875rem;
+}
+
+.review-callout__label {
+  margin: 0.75rem 0 0.25rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+
+.review-callout__list {
+  margin: 0;
+  padding-left: 1.125rem;
+  font-size: 0.875rem;
+}
+
+.review-callout__list li + li {
+  margin-top: 0.25rem;
+}
+
+/* ------------------------------------------------------- employer response */
+
+.response__current {
+  margin: 0 0 0.75rem;
+  font-size: 0.9375rem;
+}
+
+.response__hint {
+  color: #52525b;
+  font-size: 0.8125rem;
+}
+
+.response__form {
+  max-width: 28rem;
+  margin-bottom: 1.25rem;
+}
+
+.history {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid #e4e4e7;
+  max-width: 42rem;
+}
+
+.history__item {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #e4e4e7;
+  font-size: 0.875rem;
+}
+
+.history__when {
+  color: #52525b;
+  font-size: 0.8125rem;
+}
+
+.history__note {
+  margin: 0.25rem 0 0;
+  color: #3f3f46;
+}
+
+/* -------------------------------------------------------------- documents */
+
+.doc-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.doc-list__item {
+  padding: 0.75rem 0;
+  border-top: 1px solid #e4e4e7;
+}
+
+.doc-list__name {
+  margin: 0 0 0.125rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+}
+
+.doc-list__meta {
+  margin: 0 0 0.5rem;
+  color: #52525b;
+  font-size: 0.8125rem;
+}
+
+/* ------------------------------------------------------ job description */
+
+.jd {
+  max-width: 46rem;
+  white-space: pre-wrap;
+  word-break: break-word;
+  line-height: 1.6;
+}

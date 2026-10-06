@@ -1,0 +1,91 @@
+[
+  {
+    "id": "a1b2c3d4-0000-4000-8000-000000000001",
+    "text": "Senior Laravel Developer",
+    "state": "published",
+    "hostedUrl": "https://jobs.lever.co/globex/a1b2c3d4-0000-4000-8000-000000000001",
+    "applyUrl": "https://jobs.lever.co/globex/a1b2c3d4-0000-4000-8000-000000000001/apply",
+    "createdAt": 1770801262000,
+    "workplaceType": "on-site",
+    "categories": {
+      "commitment": "Full-time",
+      "department": "Engineering",
+      "location": "Toronto, ON",
+      "team": "Platform",
+      "allLocations": ["Toronto, ON"]
+    },
+    "descriptionPlain": "Globex is looking for a senior Laravel developer to lead our internal tooling group. You will work across queues, Eloquent and a React frontend, and you will own the systems the rest of engineering depends on every day.",
+    "description": "<div><p>Globex is looking for a senior Laravel developer to lead our internal tooling group.</p></div>",
+    "lists": [
+      {
+        "text": "What we're looking for",
+        "content": "<ul><li>5+ years of PHP, ideally on Laravel</li><li>Comfort with PostgreSQL schema design</li><li>Experience with queue-backed background work</li></ul>"
+      },
+      {
+        "text": "",
+        "content": "<ul><li>An untitled list block still contributes its content</li></ul>"
+      },
+      {
+        "text": "Empty block",
+        "content": ""
+      }
+    ],
+    "additionalPlain": "Globex is an equal opportunity employer. This closing paragraph exists so the reassembled description clears the 400-character enrichment threshold and the test can assert on it.",
+    "additional": "<p>Globex is an equal opportunity employer.</p>"
+  },
+  {
+    "id": "a1b2c3d4-0000-4000-8000-000000000002",
+    "text": "Laravel Developer, Payments",
+    "state": "published",
+    "hostedUrl": "https://jobs.lever.co/globex/a1b2c3d4-0000-4000-8000-000000000002",
+    "createdAt": 1770714862000,
+    "workplaceType": "remote",
+    "categories": {
+      "commitment": "Full-time",
+      "department": "Engineering",
+      "location": "Remote",
+      "allLocations": ["Remote — Americas", "Remote — EMEA"]
+    },
+    "descriptionPlain": "Short teaser. Full description on the posting page.",
+    "lists": []
+  },
+  {
+    "id": "a1b2c3d4-0000-4000-8000-000000000003",
+    "text": "Account Executive, Mid-Market",
+    "state": "published",
+    "hostedUrl": "https://jobs.lever.co/globex/a1b2c3d4-0000-4000-8000-000000000003",
+    "createdAt": 1770628462000,
+    "workplaceType": "hybrid",
+    "categories": {
+      "commitment": "Full-time",
+      "department": "Sales",
+      "location": "New York, NY"
+    },
+    "descriptionPlain": "Own a book of mid-market accounts.",
+    "lists": []
+  },
+  {
+    "id": "a1b2c3d4-0000-4000-8000-000000000004",
+    "text": "Contract Laravel Developer",
+    "state": "published",
+    "applyUrl": "https://jobs.lever.co/globex/a1b2c3d4-0000-4000-8000-000000000004/apply",
+    "createdAt": 0,
+    "categories": {
+      "commitment": "Contract",
+      "department": "Engineering",
+      "location": "Vancouver, BC"
+    },
+    "descriptionPlain": "Six-month contract on the platform team.",
+    "lists": []
+  },
+  {
+    "id": "a1b2c3d4-0000-4000-8000-000000000005",
+    "text": "Lead Laravel Developer",
+    "state": "published",
+    "hostedUrl": "",
+    "createdAt": 1770542062000,
+    "categories": { "location": "Toronto, ON" },
+    "descriptionPlain": "Unusable: no hostedUrl and no applyUrl.",
+    "lists": []
+  }
+]
